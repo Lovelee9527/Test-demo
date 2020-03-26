@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+
+
+		</style>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+var obj={
+	name:'lee',
+	sex:'male',
+	kk:{
+		say:'hi',
+		mine:{
+			lisa:[99,00],
+			nulll:null
+		}
+	},
+	fc:function(){
+		console.log(99)
+	},
+	nul:null,
+	und:undefined
+}
+
+ var objj=[1,2,3,4]
+
+function clone(target) {
+   if(typeof target==='object'){
+	   let cloneTarget = Array.isArray(target)?[]:{};
+	   for (const key in target) {
+		   if( (typeof target[key])==='object'&&!target[key]){
+			cloneTarget[key] =null;			     
+		   }else if(typeof target[key]==='object'){
+			  cloneTarget[key] = clone(target[key])
+		   }
+		   else{
+			   cloneTarget[key] = target[key];
+		   }	       	     
+	   }
+	   return cloneTarget;
+	  
+   }else{
+	   return target;
+   }
+};
+console.time('clone')
+var obj2=clone(obj);
+console.timeEnd('clone')
+obj.name='opp'
+ obj.kk['mine'].lisa=[88,44]
+console.log(obj2);
+console.log(obj)
+
+		</script>
+
+	</body>
+</html>
